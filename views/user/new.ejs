@@ -1,0 +1,38 @@
+<h4> Create an account </h4>
+<div class="row">
+    	
+
+    <form class="col s12" action="/user/create" method="POST">
+      	<% if(flash && flash.err){ %>
+      		<ul class="alert">
+      		<% Object.keys(flash.err).forEach(function(error) { %>
+      			<li> <%- JSON.stringify(flash.err['error']) %></li>
+      		<% }) %>
+      		</ul>
+      	<% } %>	
+      	<div class="row">
+       		<div class="input-field col s6">
+          		<input id="username" type="text" class="validate" name="username">
+          		<label for="username">username</label>
+        	</div>
+      	</div>
+      	
+      	<div class="row">
+       		<div class="input-field col s12">
+        		<input id="password" type="password" class="validate" name="password">
+        		<label for="password">Password</label>
+        	</div>
+     	</div>
+     	
+     	<div class="row">
+        	<div class="input-field col s12">
+          		<input id="email" type="email" class="validate" name="email">
+          		<label for="email">Email</label>
+        	</div>
+      	</div>
+        
+        <button class="btn waves-effect waves-light" type="submit">Submit</button>
+  		
+  		<input type="hidden" name="_csrf" value="<%= _csrf %>">
+    </form>
+</div>
