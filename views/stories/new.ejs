@@ -1,0 +1,29 @@
+<h1> Create a new story </h1>
+
+<div class="row">
+    	
+
+    <form class="col s12" action="/stories/create" method="POST">
+      	<% if(flash && flash.err){ %>
+      		<ul class="alert">
+      		<% Object.keys(flash.err).forEach(function(error) { %>
+      			<li> <%- JSON.stringify(flash.err['error']) %></li>
+      		<% }) %>
+      		</ul>
+      	<% } %>	
+      	<div class="row">
+       		<div class="input-field col s6">
+          		<input id="title" type="text" class="validate" name="title">
+          		<label for="title">title</label>
+        	</div>
+        	<div class="input-field col s6">
+        		<input id="category" type="text" class="validate" name="category">
+        		<label for="category"> category </label>
+        	</div>
+      	</div>
+      		     	
+        <button class="btn waves-effect waves-light" type="submit">Submit</button>
+
+  		<input type="hidden" name="_csrf" value="<%= _csrf %>">
+    </form>
+</div>

@@ -11,7 +11,6 @@ module.exports = {
   adapter: 'mysql-adapter', 
   migrate: 'safe',
 
-
   schema: true,
   
   attributes: {
@@ -28,7 +27,23 @@ module.exports = {
 
   	password: {
   		type: 'string'
-  	} 
+  	}, 
+  }, 
+
+  beforeCreate: function(values, next) {
+    // if(!values.password) || values.password != values.confirmation) {
+    //   return next({err: ["Password doesn't match password confirmation"]})
+    // }
+
+    require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
+      if(err) return next(err);
+      values.password = encryptedPassword;
+      values.online = true;
+      next();
+    });
   }
+
+
+
 };
 
