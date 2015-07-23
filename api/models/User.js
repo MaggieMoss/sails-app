@@ -28,6 +28,11 @@ module.exports = {
   	password: {
   		type: 'string'
   	}, 
+
+    stories: {
+      collection: 'stories', 
+      via: 'author'
+    }
   }, 
 
   beforeCreate: function(values, next) {

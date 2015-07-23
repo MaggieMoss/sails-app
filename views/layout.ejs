@@ -36,8 +36,17 @@
 
   <body>
   <div class="container">
-    <div class="card-panel hoverable"> Nav Bar Will Go Here </div>
-      <%- body %>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Logo</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/session/new">Log In</a></li>
+            <li><a href="/user/new">Sign Up</a></li>
+            <li><a href="/stories/index">Browse</a></li>
+          </ul>
+        </div>
+      </nav>
+    <%- body %>
     <div class="divider"></div>  
     <div class="card-panel hoverable"> Footer Content will go here </div>
   </div>k  

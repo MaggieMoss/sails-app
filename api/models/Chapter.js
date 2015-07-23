@@ -1,5 +1,5 @@
 /**
-* Stories.js
+* Chapter.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
@@ -13,25 +13,13 @@ module.exports = {
   		required: true
   	}, 
 
-  	coverImage: {
-  		type: 'string',
+  	content: {
+  		type: 'text',
   	}, 
 
-  	author: {
-  		model: 'user'
-  	}, 
-
-  	category: {
-  		type: 'string'
-  	}, 
-
-    description: {
-      type: 'text'
+    story: {
+    	model: 'stories'
     }
-    // chapters: {
-    //   collection: 'chapters', 
-    //   via: 'story'
-    // }
   }
 };
 

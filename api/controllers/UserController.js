@@ -4,8 +4,9 @@
  * @description :: Server-side logic for managing users
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-var bcrypt = require('bcrypt');
+
 module.exports = {
+	
 	'new': function(req, res) {
 		res.view();
 	},
@@ -30,9 +31,12 @@ module.exports = {
 		User.findOne(req.param('id'), function foundUser(err, user) {
 			if (err) return next(err);
 			if (!user) return next();
-			res.view({ 
-				user: user
-			});
+			Stories.find({"author": user.id}).then(function(stories){
+				res.view({ 
+					user: user, 
+					stories: stories
+				});
+			});	
 		});
 	}, 
 
