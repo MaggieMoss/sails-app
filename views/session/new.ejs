@@ -1,15 +1,22 @@
-<form action="/session/create" method="POST">
-	<h2> Please Sign In ... </h2>
 
-	<% if(flash && flash.err) { %>
-		<ul class="alert">
-		<% Object.keys(flash.err).forEach(function(error){ %>
-			<li> <%- JSON.stringify(flash.err['error']) %></li>
-		<% }) %>
-		</ul>
-	<% } %>
-	<input type="text" placeholder="email address" name="email">
-	<input type="password" placeholder="password" name="password">
-	<input type="submit" value="Sign-In"/>
-	<input type="hidden" name="_csrf" value="<%= _csrf %>" />
-</form>
+<% if(!logged_in){ %>
+	<form action="/session/create" method="POST">
+		<h2> Please Sign In ... </h2>
+
+		<% if(flash && flash.err) { %>
+			<ul class="alert">
+			<% Object.keys(flash.err).forEach(function(error){ %>
+				<li> <%- JSON.stringify(flash.err['error']) %></li>
+			<% }) %>
+			</ul>
+		<% } %>
+		<%- console.log(logged_in) %>
+		<input type="text" placeholder="email address" name="email">
+		<input type="password" placeholder="password" name="password">
+		<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+  		</button>
+  		<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+	</form>
+<% } else { %>
+	<a  href="/session/destroy" class="waves-effect waves-light btn">Log Out</a>
+<% } %>

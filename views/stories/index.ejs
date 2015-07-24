@@ -1,17 +1,25 @@
 <h2> Find a story to read </h1>
 
 <% for(i=0; i < stories.length; i++){ %>
-	<div class="card small">
-		    <div class="card-image waves-effect waves-block waves-light">
-		      <img class="activator" src="/images/freaksandgeeks.png">
-		    </div>
-		    <div class="card-content">
-		      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">...</i></span>
-		      <p><a href="#"><%= stories[i].title %></a></p>
-		    </div>
-		    <div class="card-reveal">
-		      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-		      <p><%= stories[i].description %></p>
-		    </div>
+	<% if(i===0 || i%2 === 0){ %>
+		<div class="row">
+	<% } %>
+        <div class="col s6">
+			<div class="card small">
+			    <div class="card-image waves-effect waves-block waves-light">
+			      <img class="activator" src="/images/freaksandgeeks.png">
+			    </div>
+			    <div class="card-content">
+			      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">...</i></span>
+			      <p><a href="#"><%= stories[i].title %></a></p>
+			    </div>
+			    <div class="card-reveal">
+			      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+			      <p><%= stories[i].description %></p>
+			    </div>
+			</div>
 		</div>
+	<% if((i != 0 && i%2===1) || i+1 === stories.length){ %>
+		</div>
+	<% } %>
 <% } %>

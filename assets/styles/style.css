@@ -1,0 +1,15 @@
+.main-page {
+	font-weight: 600;
+	color: white;
+}
+.banner {
+	height: 100px;
+	background: teal;
+	margin: 10px;
+}
+
+a {
+	color: white;
+	text-decoration:none;
+}
+

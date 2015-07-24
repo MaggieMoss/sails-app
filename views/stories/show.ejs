@@ -1,0 +1,17 @@
+<h4> <%= story.title %></h4>
+
+<% if(chapters){ %>
+	<ul class="collapsible" data-collapsible="accordion">
+    	<% for(i=0; i < chapters.length; i++){ %>
+		    <li>
+	    	    <div class="collapsible-header"><%= chapters[i].title %></div>
+	      		<div class="collapsible-body">
+	      			<p><%= chapters[i].content %></p>
+	      			<a href="/chapter/show/" class="waves-effect waves-light btn-large"> Read More </a>
+	      		</div>
+	    	</li>
+  	  <% } %>
+    </ul>
+<% } %>
+<a href="/chapter/new?id=<%= story.id %>" class="waves-effect waves-light btn-large">Add A Chapter</a>
+<h5> Add code for adding comments to stories here </h5>

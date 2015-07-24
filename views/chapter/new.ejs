@@ -20,9 +20,9 @@
         		<textarea name="content">Enter text here...</textarea>
         	</div>
       	</div>
-      		     	
+      		     <h1> <%= story_id %></h1>	
         <button class="btn waves-effect waves-light" type="submit">Submit</button>
-
+      <input type="hidden" name="story_id" value="<%= story_id %>">
   		<input type="hidden" name="_csrf" value="<%= _csrf %>">
     </form>
 </div>

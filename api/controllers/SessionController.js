@@ -7,7 +7,8 @@
 var bcrypt = require('bcrypt');
 module.exports = {
 	'new': function(req, res) {
-		res.view('session/new');
+		var logged_in = req.session.authenticated;
+		res.view({ logged_in: logged_in });
 	}, 
 
 	create: function(req, res, next) {
